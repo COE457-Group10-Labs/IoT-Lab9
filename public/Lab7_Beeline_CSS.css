@@ -1,0 +1,297 @@
+body {
+    font-family: 'Noto Sans JP', sans-serif;    /*Google Font*/
+    font-weight: 300;                           /*Light font style for body*/
+    font-size: 15px;
+    color: black;
+}
+
+h1 {
+    font-family: 'Noto Sans JP', sans-serif;    /*Google Font*/
+    font-weight: 700;                           /*Bold font style for heading*/
+    font-size: 32px; 
+    padding: 0rem;
+}
+
+.flex-container {
+    display: flex;
+    margin-right: 2%;
+}
+
+header {
+    height: fit-content;
+    padding-bottom: 0.75rem;
+}
+
+#logoImage {
+    height: 2.5rem;
+    width: auto;
+}
+
+.mainSection {
+    margin-left: 4%;
+    width: 45vw;
+    height: auto;
+    min-height: 80vh;
+    max-height: 90vh;
+    max-width: 55vw;
+    flex: 45%;
+}
+
+#mainImageDiv {    /*used to make image fill 95% of browser height*/
+    height: 100%;  
+    width: auto;
+    max-height: 100%;
+    background-image: url('images/beeline.png'); /*sets image as background to cover over it with side panel when resizing */
+    background-size: cover;
+}
+
+#mainImageDiv img {
+    display: none;      /*hide HTML image object (displayed as background image instead when screen is large to allow 'cover' when resizing)*/
+}
+
+.sidePanel {
+    padding: 1rem;
+    padding-top: 0rem;
+    padding-bottom: 0.25rem;
+    /* margin-top: -2rem; */
+    margin-left: 3%;
+    width: 30vw;
+    height: fit-content;
+    max-width: 30vw;
+    max-height: 93vh;
+    flex: 30%;
+}
+
+.openingLinePar {
+    /* margin-top: -1rem; */
+}
+
+.iphoneImagesDiv {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.iphoneAppImage {
+    width: 9.3vw;
+    height: auto;
+    padding-top: 0rem;
+}
+
+.middleAppImage {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.appInfoListDiv {
+    margin-left: -1rem;
+}
+
+.appInfoList {
+    list-style: none;
+    padding-left: 0.3rem;
+}
+
+.appInfoList li {
+    padding-bottom: 1rem;
+}
+
+.fa-li {
+    padding-top: 0.2rem;
+}
+
+.appStoreButtonsDiv {
+    width: fit-content;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: -1rem;
+}
+
+.appStoreButton {
+    width: 14.5vw;
+    height: auto;
+    padding: 0.5rem;
+    padding-top: 0rem;
+}
+
+/*-----------------------------------------*/
+
+@media only screen and (max-width: 800px) {      /*For tablets (iPad) portrait*/
+/*Tablets (iPad) landscape mode appears as default layout above*/
+    body {
+        font-size: 17px;
+    }
+    
+    h1 {
+        font-size: 44px;
+    }
+
+    .flex-container {
+        display: inline-block; 
+        width: 100%; 
+        margin: 0rem;
+    }
+    
+    .mainSection {
+        display: inline-block;
+        margin: 0rem; 
+        width: 100%;
+        min-height: max-content; 
+        height: fit-content;
+    }
+    
+    #mainImageDiv img {
+        display: block; 
+        width: 100%; 
+        height: auto;
+    }
+
+    #mainImageDiv {
+        width: 99vw; 
+        height: auto; 
+        background-image: none; 
+        max-width: 99vw;
+        min-height: max-content;
+    }
+
+    .sidePanel {
+        display: inline-block;
+        width: 90vw;
+        max-width: 90vw;
+        height: auto;
+        padding-top: 3%;
+        margin: 0rem;
+    }
+
+    .iphoneImagesDiv {
+        width: 100%;
+        height: auto;
+        display: block;
+        text-align: center; 
+    }
+
+    .iphoneAppImage {
+        width: 30%;
+        height: auto;
+    }
+    
+
+    .appStoreButtonsDiv {
+        width: 100%;
+        height: auto;
+        display: block;
+        text-align: center;
+        margin-left: 1rem;
+    }
+
+    .appStoreButton {
+        width: 45%;
+        height: auto;
+    }
+}
+
+
+/*-----------------------------------------*/
+
+@media only screen and (max-width: 820px) and (orientation: landscape) { /*For mobile phones (iPhone X) turned landscape*/
+    /*only includes changes made to the 'tablet' media query settings*/
+    body {  
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+    
+    header {
+        height: fit-content;
+        padding-bottom: 0.5rem;
+    }
+    
+    #logoImage {
+        height: 1.5rem;
+        width: auto;
+    } 
+
+    .mainSection {
+        margin-left: 4%;
+        width: 55vw;
+        height: auto;
+        max-height: 90vh;
+        flex: 55%;
+    }
+
+    #mainImageDiv {    /*used to make image fill height of side panel (almost two scrolls of lands. screen height = ~180%) */
+        height: 180%;  
+        width: auto;
+        max-height: 180%;
+        margin-bottom: 5%;
+
+        /* image is set as background with 'cover' size, so image will stay in aspect ratio
+        ** and side panel will cover to keep set visible widths 
+        */
+    }
+
+}
+
+/*-----------------------------------------*/
+
+@media only screen and (max-width: 500px) {      /*For mobile phones (iPhone) portrait*/
+    body {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    header {
+        height: fit-content;
+        padding-bottom: 0.5rem;
+    }
+    
+    #logoImage {
+        height: 1.5rem;
+        width: auto;
+    }
+
+    .mainSection {
+        max-width: 100%;
+        max-height: auto;
+    }
+
+    #mainImageDiv {
+        width: 99%; 
+        height: auto; 
+        background-image: none;
+    }
+
+    .sidePanel {
+        padding-top: 0rem;
+        margin-top: -1rem;
+        margin-left: -0.5rem; 
+    }
+
+    .iphoneImagesDiv {
+        display: flex;
+        flex-wrap: nowrap;
+        
+    }
+    
+    .iphoneAppImage {
+        width: 30%;
+        height: auto;
+    }
+
+    .appStoreButtonsDiv {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+        height: auto;
+        margin-left: 0rem;
+    }
+
+    .appStoreButton {
+        width: 90%;
+        height: auto;
+    }
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Lab 7 changes: Bootstrap CSS link-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Link above is used for icons -->
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;700&display=swap" rel="stylesheet">
+        <!-- Link above is used for fonts -->
+
+        <link rel="stylesheet" type="text/css" media="all" href="Lab7_Beeline_CSS.css"/>   
+        <!-- Link above is used for custom css -->
+
+        <title>Beeline</title>
+    </head>
+
+
+
+    <body onload="addImageListeners();">
+        <!--Alert before the header (for COVID Shipping status)-->
+        <div class="alert alert-info" role="alert" style="text-align:center;">
+            COVID-19 UPDATE: We are open and shipping orders as normal
+        </div>
+
+        <header>
+            <!-- <a href="https://beeline.co" target="_blank">
+                <img src="images/logo.png" alt="Beeline Logo" id="logoImage"/>
+            </a> -->
+
+            <!-- Navigation Bar-->
+            <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                <a class="nav-brand" href="https://beeline.co" target="_blank">
+                    <img src="images/logo.png" alt="Beeline Logo" id="logoImage" style="padding-right: 2rem;"/>
+                </a>
+                <ul class="navbar-nav">
+                    <li class="nav-item active"><a class="nav-link" href="#"> Overview </a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"> For bicycles </a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"> For motorcycles </a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"> Support </a></li>
+                    <!--Dropdown menu-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Currency </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#"> AUD $ </a>
+                            <a class="dropdown-item" href="#"> CAD $ </a>
+                            <a class="dropdown-item" href="#"> EUR € </a>
+                            <a class="dropdown-item" href="#"> GBP £ </a>
+                            <a class="dropdown-item" href="#"> JPY ¥ </a>
+                            <a class="dropdown-item" href="#"> USD $ </a>
+                        </div>
+                    </li>
+                </ul>
+                <!--Basket button (with icon)-->
+                <form class="form-inline">
+                    <button class="btn btn-outline-success btn-sm" type="button"><i class="fa fa-shopping-basket"></i> Basket</button>
+                </form>
+
+                <!--Accessibility buttons (with jQuery functions)-->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><button class="btn btn-outline-info btn-sm" type="button" onclick="increaseFontSize();"> Increase font size </button></li>
+                    <li class="nav-item"><button class="btn btn-outline-info btn-sm" type="button" onclick="changeFontFamily();"> Change font type </button></li>
+                    <li class="nav-item"><button class="btn btn-outline-info btn-sm" type="button" onclick="resetFontSize();"> Reset font size </button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Collapsable 'Contact us' Form -->
+        <div class="accordion">
+            <div class="card">
+                <div class="card-header">
+                    <button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#collapseContactForm" aria-expanded="false"> Contact Us! </button>
+                </div>
+            </div>
+
+            <!--Form body-->
+            <div id="collapseContactForm" class="collapse">
+                <div class="card-body"> 
+                    <h4>We love hearing from our Beeline community. If you have any questions or suggestions, or any other support issue, just fill this form.</h4>
+                    <form action="http://localhost:1234/process_contactForm" method="POST">     <!-- UPDATE FOR LAB 9 - ADDED FORM ACTION AND METHOD -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="name"> Name * </label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Enter first and second name" required/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email"> Email * </label>
+                                <input type="text" id="email" name="email" class="form-control" placeholder="Enter your email address" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message"> Message * </label>
+                            <input type="text" id="message" name="message" class="form-control" placeholder="Type your message here.." required/>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="messageCopyCheck"/>
+                            <label for="messageCopyCheck"> Send me a copy of my message </label>
+                        </div>
+                        <button type="submit" class="btn btn-success"> Send! </button>
+                    </form>
+                    <hr/>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+
+        <div class="flex-container">
+            <section class="mainSection">
+                <div id="mainImageDiv"> <img src="images/beeline.png" alt="Beeline Image"/> </div>
+            </section>
+
+            <aside class="sidePanel">
+                <h1>Beeline app</h1>
+                <p class="openingLinePar">Plan routes and see your journey history with the Beeline app, available for iOS and Android</p>
+                
+                <div class="iphoneImagesDiv">
+                    <img src="images/iphone1.png" alt="Beeline iPhone App 1" class="iphoneAppImage"/>
+                    <img src="images/iphone2.png" alt="Beeline iPhone App 2" class="iphoneAppImage middleAppImage"/>
+                    <img src="images/iphone3.png" alt="Beeline iPhone App 3" class="iphoneAppImage"/>
+                </div>
+
+                <div class="appInfoListDiv">
+                    <ul class="appInfoList fa-ul">
+                        <li><i class="fa-li fa fa-check-circle fa-lg"></i>Easily build your own routes and save them in the route planner, or import any GPX file</li>
+                        <li><i class="fa-li fa fa-check-circle fa-lg"></i>Track all of your rides and stats to look back on past adventures</li>
+                        <li><i class="fa-li fa fa-check-circle fa-lg"></i>Save your favourite places and routes</li>
+                        <li><i class="fa-li fa fa-check-circle fa-lg"></i>Avoid motorways, tolls and ferries</li>
+                    </ul>
+                </div>
+
+                <div class="appStoreButtonsDiv">
+                    <a href=" https://itunes.apple.com/app/id1095384281" target="_blank">
+                        <img src="images/apple.png" alt="Apple Store link" class="appStoreButton"/>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=co.beeline" target="_blank">
+                        <img src="images/android.png" alt="Android Store link" class="appStoreButton"/>
+                    </a>
+                </div>
+            </aside>
+        </div>
+
+    
+        <!--Lab 7 Change: JS Script Tags (for jQuery and Bootstrap bundle)-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+        <!-- Custom Script source -->
+        <script src="Lab7_Beeline_JQuery.js"></script>
+    </body>
+</html>
